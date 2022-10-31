@@ -1,14 +1,16 @@
-export const getContacts = store => store.contacts;
+export const getContacts = ({ contacts }) => contacts.items;
+export const getState = ({ contacts }) => ({
+  loading: contacts.loading,
+  error: contacts.error,
+});
 
-export const getFilteredContacts = ({ contacts }) => {
-  const { contactsArr, filter } = contacts;
-
+export const getFilteredContacts = ({ contacts, filter }) => {
   if (!filter) {
-    return contactsArr;
+    return contacts.items;
   }
 
   const normalizedFilter = filter.toLocaleLowerCase();
-  const filterlist = contactsArr.filter(contact => {
+  const filterlist = contacts.items.filter(contact => {
     return contact.name.toLocaleLowerCase().includes(normalizedFilter);
   });
   return filterlist;
