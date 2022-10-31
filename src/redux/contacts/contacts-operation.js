@@ -44,14 +44,6 @@ export const addContact = createAsyncThunk(
       return rejectWithValue(error);
     }
   }
-  // {
-  //   condition: (data, { getState }) => {
-  //     const { books } = getState();
-  //     if (isDublicate(data, books.items)) {
-  //       return alert(`${data.title} - ${data.author} is already exist`);
-  //     }
-  //   },
-  // }
 );
 
 // export const addContact = data => {
